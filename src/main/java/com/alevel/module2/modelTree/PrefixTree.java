@@ -22,4 +22,15 @@ public class PrefixTree {
             binaryCodes.add(null);
     }
 
+    public List<Integer> getBinaryCodeOf(int symbol) {
+        if (symbol < 0 && symbol >= binaryCodes.size()) {
+            log.error("getBinaryCodeOf() ==> Unreachable index of code by symbol {}", symbol);
+            throw new IllegalArgumentException("Unreachable index of code by symbol " + symbol);
+        }
+        if (binaryCodes.get(symbol) == null) {
+            log.error("getBinaryCodeOf() ==> There is no code for symbol {}", symbol);
+            throw new IllegalArgumentException("There is no code for symbol " + symbol);
+        }
+        return binaryCodes.get(symbol);
+    }
 }
