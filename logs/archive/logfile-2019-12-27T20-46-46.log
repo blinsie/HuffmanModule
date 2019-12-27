@@ -1,0 +1,6 @@
+2019-12-27 20:46:46,304 INFO Application [main] -------------------------------STARTING APPLICATION-------------------------------
+2019-12-27 20:46:46,310 DEBUG com.alevel.module2.file.FileArgsParser [main] Checking file D:\NIX\HuffmanModule\src\main\resources\Input.hf
+2019-12-27 20:46:46,311 DEBUG com.alevel.module2.file.FileArgsParser [main] Checking file D:\NIX\HuffmanModule\src\main\resources\Input1.txt
+2019-12-27 20:46:46,327 DEBUG com.alevel.module2.file.FileArgsParser [main] Getting converter type in getConverterType()
+2019-12-27 20:46:46,327 DEBUG Application [main] doCompression() ==> Creating HuffmanDecompressionUtils variable - decompress
+2019-12-27 20:46:46,328 DEBUG Application [main] doCompression() ==> Try to read table and binary code from file
