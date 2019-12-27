@@ -1,0 +1,25 @@
+2019-12-27 20:17:46,470 INFO Application [main] -------------------------------STARTING APPLICATION-------------------------------
+2019-12-27 20:17:46,477 DEBUG com.alevel.module2.file.FileArgsParser [main] Checking file D:\NIX\Huffman\src\main\resources\Input.txt
+2019-12-27 20:17:46,477 DEBUG com.alevel.module2.file.FileArgsParser [main] Checking file D:\NIX\Huffman\src\main\resources\Input.hf
+2019-12-27 20:17:46,478 DEBUG com.alevel.module2.file.FileArgsParser [main] Getting converter type in getConverterType()
+2019-12-27 20:17:46,479 DEBUG Application [main] doCompression() ==> Creating HuffmanCompressionUtils variable - compress
+2019-12-27 20:17:46,480 DEBUG Application [main] doCompression() ==> Creating FrequencyTable variable - frequencies
+2019-12-27 20:17:46,483 DEBUG com.alevel.module2.modelHuffman.algorythm.HuffmanCompressionUtils [main] getFrequencies() ==> Getting frequencies table
+2019-12-27 20:17:46,484 DEBUG Application [main] doCompression() ==> Creating new Prefix Tree
+2019-12-27 20:17:46,485 DEBUG com.alevel.module2.modelHuffman.algorythm.FrequencyTable [main] buildPrefixTreeByFrequencies() ==> Building new Prefix Tree
+2019-12-27 20:17:46,487 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of h: [0, 0, 0]
+2019-12-27 20:17:46,493 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of ,: [0, 0, 1, 0]
+2019-12-27 20:17:46,494 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of t: [0, 0, 1, 1]
+2019-12-27 20:17:46,533 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of e: [0, 1]
+2019-12-27 20:17:46,534 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of l: [1, 0, 0]
+2019-12-27 20:17:46,534 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of H: [1, 0, 1, 0]
+2019-12-27 20:17:46,535 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of !: [1, 0, 1, 1]
+2019-12-27 20:17:46,535 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of r: [1, 1, 0, 0]
+2019-12-27 20:17:46,535 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of o: [1, 1, 0, 1]
+2019-12-27 20:17:46,535 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of Ā: [1, 1, 1, 0]
+2019-12-27 20:17:46,536 DEBUG com.alevel.module2.modelTree.PrefixTree [main] PREFIX of  : [1, 1, 1, 1]
+2019-12-27 20:17:46,536 DEBUG Application [main] doCompression() ==> Try to write table and binary code to file
+2019-12-27 20:17:46,578 DEBUG com.alevel.module2.modelHuffman.algorythm.HuffmanCompressionUtils [main] 
+------------------------------------COMPRESSING RESULT-------------------------------------
+2019-12-27 20:17:46,582 DEBUG com.alevel.module2.file.BitWriter [main] Closing Bit Writer Stream success.
+2019-12-27 20:17:46,583 INFO Application [main] -------------------------------FINISHING APPLICATION-------------------------------

@@ -40,13 +40,18 @@ public class HuffmanCompressionUtils {
     public void compress(PrefixTree code, InputStream in, BitWriter out) throws IOException {
         HuffmanEncoder encoder = new HuffmanEncoder(out);
         encoder.setPrefixTree(code);
-        log.debug("\n------------------------------------COMPRESSING RESULT-------------------------------------");
+
+        System.out.println();
+        log.debug("------------------------------------COMPRESSING RESULT-------------------------------------");
         while (true) {
             int b = in.read();
             if (b == -1)
                 break;
             encoder.write(b);
         }
+
+        System.out.println();
+        log.debug("Finish compression");
         encoder.write(256);  // EOF
     }
 }

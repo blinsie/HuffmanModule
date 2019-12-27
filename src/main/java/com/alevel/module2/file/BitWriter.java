@@ -22,7 +22,7 @@ public class BitWriter implements AutoCloseable {
     public void write(int b) throws IOException {
         if (b != 0 && b != 1)
             throw new IllegalArgumentException("Argument must be 0 or 1");
-
+        System.out.print(b);
         currentByte = (currentByte << 1) | b;
         numBitsFilled++;
         if (numBitsFilled == 8) {
