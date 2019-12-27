@@ -30,7 +30,8 @@ public class FileArgsParser implements FileParser {
         if (fileName.length == 1) {
             if (fileName[0].endsWith(".hf")) {
                 args.add(new File(fileName[0]));
-                args.add(new File(fileName[0] + ".txt"));
+                String output = fileName[0].replace(".hf", "");
+                args.add(new File(output));
             } else {
                 args.add(new File(fileName[0]));
                 args.add(new File(fileName[0] + ".hf"));
