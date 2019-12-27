@@ -1,4 +1,4 @@
-package com.alevel.module2.modelHuffman;
+package com.alevel.module2.modelHuffman.algorythm;
 
 import com.alevel.module2.modelTree.Node;
 import com.alevel.module2.modelTree.NodeComparable;

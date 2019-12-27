@@ -1,4 +1,4 @@
-package com.alevel.module2.modelHuffman;
+package com.alevel.module2.modelHuffman.algorythm;
 
 import com.alevel.module2.file.BitWriter;
 import com.alevel.module2.modelTree.PrefixTree;

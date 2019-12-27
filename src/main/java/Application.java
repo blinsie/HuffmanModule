@@ -21,8 +21,6 @@ public class Application {
 
     private static void doCompression(List<File> files) throws IOException {
 
-
-
     }
 
     private static void doDecompression(List<File> files) throws IOException {
