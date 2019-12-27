@@ -1,8 +1,10 @@
+import com.alevel.module2.file.BitReader;
 import com.alevel.module2.file.BitWriter;
 import com.alevel.module2.file.FileArgsParser;
 import com.alevel.module2.modelHuffman.HuffmanConverter;
 import com.alevel.module2.modelHuffman.algorythm.FrequencyTable;
 import com.alevel.module2.modelHuffman.algorythm.HuffmanCompressionUtils;
+import com.alevel.module2.modelHuffman.algorythm.HuffmanDecompressionUtils;
 import com.alevel.module2.modelTree.PrefixTree;
 import lombok.extern.slf4j.Slf4j;
 
@@ -58,7 +60,15 @@ public class Application {
     }
 
     private static void doDecompression(List<File> files) throws IOException {
+        log.debug("doCompression() ==> Creating HuffmanDecompressionUtils variable - decompress");
+        HuffmanDecompressionUtils decompress = new HuffmanDecompressionUtils();
 
-
+        log.debug("doCompression() ==> Try to read table and binary code from file");
+        try (BitReader in = new BitReader(new BufferedInputStream(new FileInputStream(files.get(0))))) {
+            try (OutputStream out = new BufferedOutputStream(new FileOutputStream(files.get(1)))) {
+                PrefixTree code = decompress.readCodeLengthTable(in);
+                decompress.decompress(code, in, out);
+            }
+        }
     }
 }
