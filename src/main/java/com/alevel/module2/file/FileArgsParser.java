@@ -3,10 +3,10 @@ package com.alevel.module2.file;
 import com.alevel.module2.modelHuffman.HuffmanConverter;
 import com.alevel.module2.modelHuffman.HuffmanConverterPool;
 import lombok.extern.slf4j.Slf4j;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -16,10 +16,38 @@ public class FileArgsParser implements FileParser {
 
     @Override
     public List<File> parse(String... fileName) {
-        throw new NotImplementedException();
+        if (fileName == null) {
+            log.error("parse() ==> Nullable arguments for main program");
+            throw new NullPointerException("Nullable arguments for main program");
+        }
+        if (fileName.length < 1) {
+            log.error("parse() ==> There is nothing to parse");
+            throw new IllegalArgumentException("There is nothing to parse");
+        }
+
+        List<File> args = new ArrayList<>();
+
+        if (fileName.length == 1) {
+            if (fileName[0].endsWith(".hf")) {
+                args.add(new File(fileName[0]));
+                args.add(new File(fileName[0] + ".txt"));
+            } else {
+                args.add(new File(fileName[0]));
+                args.add(new File(fileName[0] + ".hf"));
+            }
+        } else if (fileName.length >= 2) {
+            args.add(new File(fileName[0]));
+            args.add(new File(fileName[1]));
+        }
+
+        for (File file : args) {
+            log.debug("Checking file " + file.getPath());
+            checkFiles(file);
+        }
+        return args;
     }
 
-    public void checkFile(File file) {
+    private void checkFiles(File file) {
         try {
             if (!file.exists()) {
                 if (!file.createNewFile()) {
