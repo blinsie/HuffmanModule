@@ -29,6 +29,9 @@ public class HuffmanDecoder {
         }
 
         Node currentNode = prefixTree.getRoot();
+
+        //todo: check if the leaf
+
         while (true) {
             int readValue = bitReader.readNoEof();
             Node nextNode;

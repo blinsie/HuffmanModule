@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Arrays;
 
 @Slf4j
 public class HuffmanDecompressionUtils {
@@ -18,7 +19,7 @@ public class HuffmanDecompressionUtils {
                 readBit = (readBit << 1) | in.readNoEof();
             codeLengths[i] = readBit;
         }
-        log.debug("readCodeLengthTable() ==> returns PrefixTree with code length " + codeLengths.toString());
+        log.debug("readCodeLengthTable() ==> returns PrefixTree with code length " + Arrays.toString(codeLengths));
         return new PrefixTree(codeLengths);
     }
 

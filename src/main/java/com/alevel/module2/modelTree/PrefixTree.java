@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,6 +24,7 @@ public class PrefixTree {
         buildBinaryCodeList(root, new ArrayList<>());
     }
 
+    //for FUCKING decompression
     public PrefixTree(int[] codeLengths) {
         if (codeLengths == null) {
             log.error("PrefixTree() ==> There is nullable code lengths for building prefix tree");
@@ -33,8 +35,19 @@ public class PrefixTree {
             throw new IllegalArgumentException("Incorrect number of codes. Required at least 2.");
         }
 
-//        for (int i = 0; i < codeLengths.length; i++) {
-//            System.out.print(codeLengths[i] + " - ");
+        Arrays.sort(codeLengths);
+
+        int currentDepth = codeLengths[codeLengths.length - 1]; //max value
+        int depth = 0;
+
+//        for (int i = codeLengths.length - 1; i >= 0 && codeLengths[i] > 0; i--) {
+//            depth = codeLengths[i];
+//            while(depth < currentDepth) {
+//                if()
+//            }
+//        }
+//        while(currentDepth > 0) {
+//
 //        }
 
     }

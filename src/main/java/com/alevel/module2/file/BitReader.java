@@ -1,5 +1,7 @@
 package com.alevel.module2.file;
 
+import com.sun.org.apache.bcel.internal.generic.ISTORE;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,20 +20,16 @@ public class BitReader implements AutoCloseable {
     }
 
     public int read() throws IOException {
-        if (currentByte == -1)
-            return -1;
         if (remainingBits == 0) {
             currentByte = input.read();
-            if (currentByte == -1)
-                return -1;
             remainingBits = 8;                                  //refreshing of new Byte
         }
         if (remainingBits <= 0)
-            throw new AssertionError();
+            throw new IllegalStateException("read() ==> readed value is bound of byte-size");
 
         remainingBits--;
-
-        return (currentByte >>> remainingBits) & 1;
+        //??????????????????????
+        return currentByte >>> remainingBits;
     }
 
     public int readNoEof() throws IOException {
