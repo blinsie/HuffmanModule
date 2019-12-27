@@ -1,0 +1,41 @@
+<configuration scan="true" debug="true">
+
+    <property name="HOME_LOG" value="logs/app.log"/>
+    <timestamp key="timestamp-by-second" datePattern="yyyy-MM-dd'T'HH-mm-ss"/>
+
+    <appender name="FILE-ROLLING"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/archive/logfile-${timestamp-by-second}.log</file>
+
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/archive/rollingFile.log%d{yyyy-MM-dd}%i.log
+            </fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>2GB</totalSizeCap>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d %p %c{1.} [%t] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="Console-Appender"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout>
+            <pattern>%d %p %c{1.} [%t] %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.test" level="debug" additivity="false">
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="Console-Appender"/>
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="FILE-ROLLING"/>
+        <appender-ref ref="Console-Appender"/>
+    </root>
+
+</configuration>
